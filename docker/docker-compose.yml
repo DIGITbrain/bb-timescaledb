@@ -1,0 +1,11 @@
+version: '3.1'
+services:
+  timescaledb:
+    image: timescale/timescaledb:2.1.0-pg13
+    restart: always
+    env_file:
+      - postgres.env # configure Postgres
+    volumes:
+      - ./_postgresql-data:/var/lib/postgresql/data/ # persist data even if the container shuts down
+    ports:
+      - "15432:5432" # disable this if you don't wish to access Postgres from the docker host, port 15432
