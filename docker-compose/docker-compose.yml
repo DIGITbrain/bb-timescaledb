@@ -9,3 +9,4 @@ services:
       - ./_postgresql-data:/var/lib/postgresql/data/ # persist data even if the container shuts down
     ports:
       - "5432:5432" # disable this if you don't wish to access Postgres from the docker host, port 15432
+    shm_size: 1g
